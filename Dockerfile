@@ -3,6 +3,10 @@ FROM php:8.2-cli
 
 # Install ekstensi PHP yang dibutuhkan CI4
 RUN apt-get update && apt-get install -y \
+git \
+unzip \
+zip \
+libzip-dev \
 libicu-dev \
 && docker-php-ext-install intl
 
