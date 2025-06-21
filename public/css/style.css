@@ -1,0 +1,96 @@
+@font-face {
+	font-family: Poppins-Regular;
+	src: url('../font/Poppins-Regular.ttf'); 
+}
+
+:root {
+	--font: 'Poppins-Regular';
+	--gradient-color: linear-gradient(135deg, #79e0ff, #6400ff);
+	--blue-2-color: #5b87ff;
+	--blue-3-color: #7b71ff;
+	--gray-color: #868686;
+	--gray-2-color: #d9d9d9;
+	--danger-color: red;
+	--danger-2-color: #ed8e8e;
+	--box-shadow: 0px 13px 30px -20px #000000b5;
+}
+
+body {
+	background: #F9F9F9;
+}
+
+body.no-scroll {
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a:active {
+	filter: brightness(0.8);
+}
+
+button,
+.notHighlight {
+	-webkit-tap-highlight-color: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+button:disabled {
+	background: var(--gray-color) !important;
+	border: none !important;
+	color: white !important;
+	cursor: no-drop !important;
+	pointer-events: none !important;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.required {
+	color: var(--danger-color);
+}
+
+.hide {
+	display: none !important;
+}
+
+.btn-second {
+	border: 1px solid var(--blue-2-color);
+	color: var(--blue-2-color);
+	border-radius: 15px;
+	background: transparent;
+	cursor: pointer;
+}
+
+.btn-danger {
+	border: 1px solid var(--danger-color);
+	color: var(--danger-color);
+	border-radius: 15px;
+	background: transparent;
+	cursor: pointer;
+}
+
+.btn-primary {
+	border: none;
+	border-radius: 15px;
+	background: var(--gradient-color);
+	color: white;
+	cursor: pointer;
+}
+
+.background-blur {
+	position: absolute;
+	inset: 0;
+	top: 0;
+	left: 0;
+	background: #6f6f6f70;
+	backdrop-filter: blur(5px);
+	overflow: auto;
+}

@@ -1,0 +1,211 @@
+.dashboard_container {
+	background: white;
+	width: 100%;
+	padding: 25px;
+	box-sizing: border-box;
+	font-family: var(--font);
+}
+
+.dashboard_container > h1 {
+	font-size: 1.7rem;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.dashboard_container .dashboard_loadingMenu {
+	height: 100vh;
+	margin-top: 100px;
+	text-align: center;
+	font-size: .9rem;
+	color: var(--gray-color);
+}
+
+.dashboard_container .dashboard_header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 10px;
+	height: 40px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	align-items: center;
+}
+
+.dashboard_container .dashboard_header .dashboard_searchInput {
+	display: flex;
+	gap: 5px;
+	height: 100%;
+	width: 50%;
+}
+
+.dashboard_container .dashboard_header .dashboard_searchInput input {
+	width: calc(100% - 70px);
+	height: 100%;
+	background: transparent;
+	border: 1px solid var(--blue-2-color);
+	border-radius: 10px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	font-family: var(--font);
+}
+
+.dashboard_container .dashboard_header input::placeholder {
+	color: #5b87ff;
+	font-family: var(--font);
+}
+
+.dashboard_container .dashboard_header .dashboard_searchInput .dashboard_btnSearch {
+	height: 100%;
+	width: 70px;
+	border-radius: 10px;
+	font-family: var(--font);
+}
+
+.dashboard_container .dashboard_header .dashboard_category {
+	display: flex;
+	gap: 10px;
+	height: 90%;
+}
+
+.dashboard_container .dashboard_header .dashboard_category .dashboard_loadingcategory {
+	align-content: center;
+	font-size: .9rem;
+	color: var(--gray-color);
+}
+
+.dashboard_container .dashboard_header .dashboard_category span {
+	color: black;
+	font-size: .9rem;
+	align-content: center;
+	cursor: pointer;
+}
+
+.dashboard_container .dashboard_header .dashboard_category span.dashboard_active {
+	background: #7774f3;
+	color: white;
+	padding: 5px 15px;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.dashboard_container .dashboard_group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 35px;
+}
+
+.dashboard_container .dashboard_group h1 {
+	font-weight: bold;
+	font-size: 1.3rem;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+}
+
+.dashboard_container .dashboard_group .dashboard_body {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	column-gap: 7px;
+	row-gap: 10px;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card {
+	position: relative;
+	background: white;
+	width: 100%;
+	border-radius: 15px;
+	box-shadow: var(--box-shadow);
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card span {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	padding: 5px 15px;
+	box-sizing: border-box;
+	border-radius: 50px;
+	font-size: .7rem;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card span.dashboard_ready {
+	background: #80eb80;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card span.dashboard_notReady {
+	background: #f77373;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card .dashboard_picture {
+	width: 100%;
+	height: 150px;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card .dashboard_picture img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card .dashboard_info {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 15px 10px;
+	box-sizing: border-box;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card .dashboard_info h2 {
+	font-size: .9rem;
+}
+
+.dashboard_container .dashboard_group .dashboard_body .dashboard_card .dashboard_info h3 {
+	text-align: right;
+}
+
+.dashboard_container .dashboard_btnAdd {
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	padding: 15px 25px;
+	box-sizing: border-box;
+	font-family: var(--font);
+	font-weight: bold;
+	letter-spacing: 1px;
+	box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 500px) {
+	.dashboard_container .dashboard_header {
+		flex-direction: column;
+		gap: 15px;
+		align-items: flex-end;
+		height: auto;
+	}
+
+	.dashboard_container .dashboard_header input {
+		width: 100%;
+		height: 45px;
+	}
+
+	.dashboard_container .dashboard_header .dashboard_searchInput {
+		width: 100%;
+		height: 40px;
+	}
+
+	.dashboard_container .dashboard_header .dashboard_searchInput input {
+		width: 75%;
+	}
+
+	.dashboard_container .dashboard_header .dashboard_searchInput .dashboard_btnSearch {
+		width: 25%;
+	}
+
+	.dashboard_container .dashboard_header .dashboard_category {
+		height: 40px;
+	}
+
+	.dashboard_container .dashboard_group {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
