@@ -29,4 +29,4 @@ RUN chmod -R 777 writable
 EXPOSE 8000
 
 # Jalankan server CI4
-CMD ["php", "spark", "serve", "--host=0.0.0.0", "--port=$PORT"]
+CMD php spark serve --host=0.0.0.0 --port=$PORT
