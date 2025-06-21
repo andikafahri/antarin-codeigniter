@@ -1,6 +1,11 @@
 # Gunakan image PHP resmi dengan CLI
 FROM php:8.2-cli
 
+# Install ekstensi PHP yang dibutuhkan CI4
+RUN apt-get update && apt-get install -y \
+libicu-dev \
+&& docker-php-ext-install intl
+
 # Copy Composer dari image Composer resmi
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
