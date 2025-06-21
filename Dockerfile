@@ -18,16 +18,18 @@ WORKDIR /var/www/html
 
 # Copy semua file project
 COPY . .
+COPY entrypoint.sh /entrypoint.sh
 
 # Install dependensi PHP
 RUN composer install
 
 # Set permission folder writable
 RUN chmod -R 777 writable
+RUN chmod +x /entrypoint.sh
 
 # Expose port (tidak wajib, tapi baik)
 EXPOSE 8080
 
 # Jalankan server CodeIgniter pakai shell agar $PORT bisa dibaca
-CMD sh -c "php spark serve --host=0.0.0.0 --port=\${PORT:-8080} --public=public"
+CMD ["/entrypoint.sh"]
 
