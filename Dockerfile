@@ -29,5 +29,5 @@ RUN chmod -R 777 writable
 EXPOSE 5000
 
 # Jalankan server CodeIgniter pakai shell agar $PORT bisa dibaca
-CMD sh -c "php spark serve --host=0.0.0.0 --port=${PORT:-5000}"
+CMD sh -c "echo \"PORT is \$PORT\" && php spark serve --host=0.0.0.0 --port=\${PORT:-5000}"
 
