@@ -26,8 +26,8 @@ RUN composer install
 RUN chmod -R 777 writable
 
 # Expose port (tidak wajib, tapi baik)
-EXPOSE 8080
+EXPOSE 5000
 
 # Jalankan server CodeIgniter pakai shell agar $PORT bisa dibaca
-CMD sh -c "php spark serve --host=0.0.0.0 --port=${PORT:-8080}"
+CMD sh -c "php spark serve --host=0.0.0.0 --port=${PORT:-5000}"
 
