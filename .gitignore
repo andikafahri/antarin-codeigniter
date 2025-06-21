@@ -126,5 +126,6 @@ nb-configuration.xml
 /phpunit*.xml
 
 # NDK
+Dockerfile
 app/Views/merchant-app
 app/Views/MerchantApp/dashboard_viewOLD/php
