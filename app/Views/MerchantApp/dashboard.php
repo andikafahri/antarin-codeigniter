@@ -25,7 +25,7 @@
 <?=$this->section('script');?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		const apiBaseURL = '<?=esc(apiBaseURL());?>'
+		const apiBaseURL = '<?=esc(env('API_BASE_URL'));?>'
 		var searchFilter = ''
 		var categoryFilter = ''
 		getCategory()

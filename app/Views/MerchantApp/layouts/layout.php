@@ -54,7 +54,7 @@
 	<script src="/js/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			const apiBaseURL = '<?=esc(apiBaseURL());?>'
+			const apiBaseURL = '<?=esc(env('API_BASE_URL'));?>'
 			getProfile()
 
 			function decodeJWT(token) {

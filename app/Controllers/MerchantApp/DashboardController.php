@@ -9,7 +9,7 @@ class DashboardController extends BaseController
 
 	public function __construct(){
 		helper(['restclient', 'restclientfile']);
-		$this->apiUrl = apiBaseURL().'/api';
+		$this->apiUrl = env('API_BASE_URL').'/api';
 	}
 
 	public function index() {

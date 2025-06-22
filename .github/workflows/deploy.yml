@@ -21,3 +21,16 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /htdocs/  # sesuaikan kalau perlu
+          exclude: |
+            .env
+            writable/**
+            uploads/**
+            .htaccess
+            css/**
+            font/**
+            img/**
+            js/**
+            favicon.io
+            index.php
+            robots.txt
+            vendor/**
