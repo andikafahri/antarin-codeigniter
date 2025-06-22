@@ -13,7 +13,7 @@ class LoginController extends BaseController
 		$client = \Config\Services::curlrequest();
 		$request = $this->request->getPost();
 
-		$url = 'http://localhost:3000/api/merchant/login';
+		$url = apiBaseURL().'/api/merchant/login';
 		$data = [
 			'username' => $request['username'],
 			'password' => $request['password']
