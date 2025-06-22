@@ -3,7 +3,7 @@ name: FTP Deploy to InfinityFree
 on:
   push:
     branches:
-      - main  # ganti kalau kamu pakai master
+      - master  # ganti kalau kamu pakai master
 
       jobs:
         ftp-deploy:
