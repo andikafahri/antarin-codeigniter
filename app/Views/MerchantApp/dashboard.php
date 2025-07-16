@@ -230,7 +230,7 @@
 			$.ajax({
 				type: 'POST',
 				url: '<?=site_url('addMenu');?>',
-					// dataType: 'JSON',
+				dataType: 'JSON',
 				data: formData,
 				contentType: false,
 				processData: false,
@@ -242,25 +242,41 @@
 					$('#btnSave').prop('disabled', true)
 				},
 				success: function(res){
-					let message = '';
-					if(!res.errors){
-						alert(res.message)
-						closeModal()
-						getMenu()
-					}else{
-						if(typeof res.errors === 'object'){
-							for(const key in res.errors){
-								message += `${res.errors[key]}\n`;
-							}	
-						}else{
-							message = res.errors
-						}
-						alert(message);	
-					}
+					// let message = '';
+					// if(!res.errors){
+					// 	alert(res.message)
+					// 	closeModal()
+					// 	getMenu()
+					// }else{
+					// 	if(typeof res.errors === 'object'){
+					// 		for(const key in res.errors){
+					// 			message += `${res.errors[key]}\n`;
+					// 		}	
+					// 	}else{
+					// 		message = res.errors
+					// 	}
+					// 	alert(message);
+					// }
+					alert(res.message)
 
 					$('#btnCancel').prop('disabled', false)
 					$('#btnSave').prop('disabled', false)
+				},
+				error: function(res){
+					let message = '';
+					const json = JSON.parse(res.responseText)
+					if(typeof json.errors === 'object'){
+						for(const key in json.errors){
+							message += `${json.errors[key]}\n`;
+						}	
+					}else{
+						message = json.errors
+					}
+					alert(message);	
+					$('#btnCancel').prop('disabled', false)
+					$('#btnSave').prop('disabled', false)
 				}
+
 			})
 			console.log([...formData.entries()])
 
@@ -318,7 +334,7 @@
 			$.ajax({
 				type: 'POST',
 				url: '<?=site_url('updateMenu?id=');?>' + $('#id_menu').val(),
-					// dataType: 'JSON',
+					dataType: 'JSON',
 				data: formData,
 				contentType: false,
 				processData: false,
@@ -330,22 +346,37 @@
 					$('#btnUpdate').prop('disabled', true)
 				},
 				success: function(res){
-					let message = '';
-					if(!res.errors){
-						alert(res.message)
-						closeModal()
-						getMenu()
-					}else{
-						if(typeof res.errors === 'object'){
-							for(const key in res.errors){
-								message += `${res.errors[key]}\n`;
-							}	
-						}else{
-							message = res.errors
-						}
-						alert(message);	
-					}
+					// let message = '';
+					// if(!res.errors){
+					// 	alert(res.message)
+					// 	closeModal()
+					// 	getMenu()
+					// }else{
+					// 	if(typeof res.errors === 'object'){
+					// 		for(const key in res.errors){
+					// 			message += `${res.errors[key]}\n`;
+					// 		}	
+					// 	}else{
+					// 		message = res.errors
+					// 	}
+					// 	alert(message);	
+					// }
+					alert(message);	
 
+					$('#btnDelete').prop('disabled', false)
+					$('#btnUpdate').prop('disabled', false)
+				},
+				error: function(res){
+					let message = '';
+					const json = JSON.parse(res.responseText)
+					if(typeof json.errors === 'object'){
+						for(const key in json.errors){
+							message += `${json.errors[key]}\n`;
+						}	
+					}else{
+						message = json.errors
+					}
+					alert(message);	
 					$('#btnDelete').prop('disabled', false)
 					$('#btnUpdate').prop('disabled', false)
 				}

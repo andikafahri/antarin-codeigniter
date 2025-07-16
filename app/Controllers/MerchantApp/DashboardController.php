@@ -64,15 +64,18 @@ class DashboardController extends BaseController
 				if(!in_array($image->getMimeType(), $allowedType)){
 					return $this->response->setJSON(['errors' => 'File harus berupa gambar']);
 				}else{
-					$multipart['image'] = new \CURLFile($image->getTempName(), $image->getMimeType(), $image->getName());
+					$multipart['file'] = new \CURLFile($image->getTempName(), $image->getMimeType(), $image->getName());
 				}
 			}
+		}else{
+			return $this->response->setStatusCode(400)->setJSON(['errors' => 'Gambar tidak boleh kosong']);
 		}
 
 		$response = apiWithFile('POST', $this->apiUrl.'/menu', $token, $multipart);
 
-		// echo $response;
-		return $this->response->setJSON($response);
+		// return $this->response->setJSON($response);
+		// echo json_encode($response['body'], JSON_PRETTY_PRINT);
+		return $this->response->setStatusCode($response['status'])->setJSON($response['body']);
 	}
 
 	public function updateMenu() {
@@ -93,7 +96,7 @@ class DashboardController extends BaseController
 				if(!in_array($image->getMimeType(), $allowedType)){
 					return $this->response->setJSON(['errors' => 'File harus berupa gambar']);
 				}else{
-					$multipart['image'] = new \CURLFile($image->getTempName(), $image->getMimeType(), $image->getName());
+					$multipart['file'] = new \CURLFile($image->getTempName(), $image->getMimeType(), $image->getName());
 				}
 			}
 		}
@@ -101,7 +104,8 @@ class DashboardController extends BaseController
 		$response = apiWithFile('PUT', $this->apiUrl.'/menu/'.$this->request->getGet('id'), $token, $multipart);
 
 		// echo $response;
-		return $this->response->setJSON($response);
+		// return $this->response->setJSON($response);
+		return $this->response->setStatusCode($response['status'])->setJSON($response['body']);
 	}
 
 	public function deleteMenu() {

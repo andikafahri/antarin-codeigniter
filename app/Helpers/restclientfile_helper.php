@@ -41,15 +41,25 @@ function apiWithFile($method, $url, $token, $multipart) {
 	// echo $response->getBody();
 	// print_r($response);
 	$status = $response->getStatusCode();
+	$body = $response->getBody();
 
-	if($status === 200){
-		return $response->getBody();
-	}else if($status === 500){
-		return json_encode(['errors' => 'Maaf, ada kendala pada erver']);
-	}else if($status === 401){
+	// if($status === 200){
+	// 	return $response->getBody();
+	// }else if($status === 500){
+	// 	return json_encode(['errors' => 'Maaf, ada kendala pada erver']);
+	// }else if($status === 401){
+	// 	return redirect()->to('');
+	// }else{
+	// 	return $response->getBody();
+	// }
+
+	if($status === 401){
 		return redirect()->to('');
 	}else{
-		return $response->getBody();
+		return [
+			'status' => $status,
+			'body' => json_decode($body, true)
+		];
 	}
 
 	// return json_decode($response->getBody(), true);
