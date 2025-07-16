@@ -169,7 +169,7 @@
 								itemComponent[i] += "<div class='dashboard_card handleUpdate' data-id='"+list[i].menus[j].id+"' data-name='"+list[i].menus[j].name+"' data-detail='"+list[i].menus[j].detail+"' data-id_category='"+list[i].id+"' data-price='"+list[i].menus[j].price+"' data-is_ready='"+list[i].menus[j].is_ready+"' data-image='"+list[i].menus[j].image+"'>"+
 								status+
 								"<div class='dashboard_picture'>"+
-								"<img src='"+apiBaseURL+"/img/merchant/"+idMerchant+"/"+list[i].menus[j].image+"' alt='' />"+
+								"<img src='"+list[i].menus[j].image+"' alt='' />"+
 								"</div>"+
 								"<div class='dashboard_info'>"+
 								"<h2>"+list[i].menus[j].name+"</h2>"+
@@ -258,6 +258,8 @@
 					// 	alert(message);
 					// }
 					alert(res.message)
+					closeModal()
+					getMenu()
 
 					$('#btnCancel').prop('disabled', false)
 					$('#btnSave').prop('disabled', false)
@@ -295,7 +297,7 @@
 			}
 
 			$('#id_menu').val($(this).data('id'))
-			$('#update_image_review').html("<img src='"+apiBaseURL+"/img/merchant/"+idMerchant+"/"+image+"' alt='' />")
+			$('#update_image_review').html("<img src='"+image+"' alt='' />")
 			$('#update_name').val($(this).data('name'))
 			$('#update_detail').val($(this).data('detail'))
 			$('#update_id_category').val($(this).data('id_category'))
@@ -334,7 +336,7 @@
 			$.ajax({
 				type: 'POST',
 				url: '<?=site_url('updateMenu?id=');?>' + $('#id_menu').val(),
-					dataType: 'JSON',
+				dataType: 'JSON',
 				data: formData,
 				contentType: false,
 				processData: false,
@@ -361,7 +363,9 @@
 					// 	}
 					// 	alert(message);	
 					// }
-					alert(message);	
+					alert(message);
+					closeModal()
+					getMenu()
 
 					$('#btnDelete').prop('disabled', false)
 					$('#btnUpdate').prop('disabled', false)
