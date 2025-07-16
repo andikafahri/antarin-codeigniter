@@ -363,7 +363,7 @@
 					// 	}
 					// 	alert(message);	
 					// }
-					alert(message);
+					alert(res.message)
 					closeModal()
 					getMenu()
 
