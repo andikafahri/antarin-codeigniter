@@ -18,4 +18,5 @@ $routes->get('/menu', 'MerchantApp\DashboardController::index');
 $routes->get('/getMenu', 'MerchantApp\DashboardController::getMenu');
 $routes->post('/addMenu', 'MerchantApp\DashboardController::addMenu');
 $routes->post('/updateMenu', 'MerchantApp\DashboardController::updateMenu');
-$routes->delete('/deleteMenu', 'MerchantApp\DashboardController::deleteMenu');
+// $routes->delete('/deleteMenu', 'MerchantApp\DashboardController::deleteMenu'); // diblok oleh InfinityFree
+$routes->post('/deleteMenu', 'MerchantApp\DashboardController::deleteMenu');

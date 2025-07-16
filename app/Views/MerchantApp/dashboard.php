@@ -392,7 +392,8 @@
 
 		$('#btnDelete').click(function(){
 			$.ajax({
-				type: 'DELETE',
+				// type: 'DELETE', // diblok oleh InfinityFree
+				type: 'POST',
 				url: '<?=site_url('deleteMenu?id=');?>' + $('#id_menu').val(),
 				dataType: 'JSON',
 				headers: {
