@@ -1,6 +1,6 @@
 <div class='mam_modal' id='modal_update_menu'>
 	<div class='mam_box'>
-		<h1 class='mam_title'>Tambah Menu</h1>
+		<h1 class='mam_title'>Edit Menu</h1>
 		<span class='notHighlight handleCloseModal'><i class='fas fa-close'></i></span>
 		<div class='mam_body'>
 			<input type="hidden" id="id_menu">
