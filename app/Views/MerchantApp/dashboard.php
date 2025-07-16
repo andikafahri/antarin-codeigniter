@@ -348,21 +348,6 @@
 					$('#btnUpdate').prop('disabled', true)
 				},
 				success: function(res){
-					// let message = '';
-					// if(!res.errors){
-					// 	alert(res.message)
-					// 	closeModal()
-					// 	getMenu()
-					// }else{
-					// 	if(typeof res.errors === 'object'){
-					// 		for(const key in res.errors){
-					// 			message += `${res.errors[key]}\n`;
-					// 		}	
-					// 	}else{
-					// 		message = res.errors
-					// 	}
-					// 	alert(message);	
-					// }
 					alert(res.message)
 					closeModal()
 					getMenu()
