@@ -258,6 +258,7 @@
 	width: 150px;
 	border-radius: 10px;
 	font-size: .75rem;
+	cursor: pointer;
 }
 
 .mam_modal .mam_box .mam_footer .mum_btnDelete {
